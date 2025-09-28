@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Weather — any city</h1>
+      <p class="sub">Search a city to see current weather + 5-day forecast.</p>
+    </header>
+
+    <!-- SearchBar component -->
+    <form id="searchForm" class="search-form" aria-label="Search city">
+      <input
+        id="cityInput"
+        class="city-input"
+        type="search"
+        name="city"
+        placeholder="Enter city (e.g., Mumbai)"
+        autocomplete="off"
+        required
+        aria-label="City name"
+      />
+      <button type="submit" class="btn">Get Weather</button>
+    </form>
+
+    <!-- Last searched city (localStorage) -->
+    <div id="lastCityContainer" class="last-city" hidden>
+      Last searched: <button id="lastCityBtn" class="link-btn"></button>
+    </div>
+
+    <!-- Card that shows loading / error / data -->
+    <section id="card" class="card" hidden>
+      <div id="loading" class="loading" hidden aria-hidden="true">
+        <span class="spinner" aria-hidden="true"></span> Loading...
+      </div>
+
+      <div id="error" class="error" role="alert" hidden></div>
+
+      <div id="current" class="current" hidden>
+        <h2 id="cityName" class="city-name"></h2>
+        <div class="row">
+          <div>
+            <p id="temp" class="temp"></p>
+            <p id="desc" class="desc"></p>
+            <p id="humidity" class="humidity"></p>
+          </div>
+          <div class="emoji" id="emoji" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div id="forecast" class="forecast" hidden>
+        <h3>5-day forecast</h3>
+        <div id="forecastList" class="forecast-list"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Built with OpenWeatherMap • Temperatures shown in °C</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
